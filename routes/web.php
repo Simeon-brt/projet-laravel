@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\PlanningController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,10 @@ Route::middleware('auth')->group(function () {
 
     // Gestion des cinémas avec resource
     Route::resource('cinema', CinemaController::class);
+
+    Route::resource('planning', PlanningController::class);
+
+
 
 });
 

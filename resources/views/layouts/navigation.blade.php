@@ -35,8 +35,9 @@
                 <x-nav-link :href="route('cinema.index')" :active="request()->routeIs('cinema.index')">
                     {{ __('Cinema') }}
                 </x-nav-link>
-                
-
+                <x-nav-link :href="route('planning.index')" :active="request()->routeIs('planning.index')">
+                    {{ __('Planning') }}
+                </x-nav-link>
             </div>
 
 
