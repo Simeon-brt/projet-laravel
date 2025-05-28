@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 23 mai 2025 à 07:39
+-- Généré le : mer. 28 mai 2025 à 13:04
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -20,6 +20,41 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `todolist`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cinemas`
+--
+
+CREATE TABLE `cinemas` (
+  `id` int NOT NULL,
+  `titre` varchar(500) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `image` varchar(500) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `cinemas`
+--
+
+INSERT INTO `cinemas` (`id`, `titre`, `description`, `image`, `date`) VALUES
+(1, 'Inception', 'Un voleur qui s\'infiltre dans les rêves pour voler des secrets doit implanter une idée dans l\'esprit d’un PDG.', 'https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg', '2010-07-16'),
+(2, 'The Dark Knight', 'Batman affronte le Joker, un criminel anarchiste qui veut plonger Gotham dans le chaos.', 'https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg', '2008-07-18'),
+(3, 'Interstellar', 'Un groupe d\'explorateurs voyage à travers un trou de ver pour trouver une nouvelle planète habitable.', 'https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg', '2014-11-07'),
+(4, 'Gladiator', 'Un général romain trahi devient gladiateur pour se venger de l’empereur corrompu.', 'https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg', '2000-05-05'),
+(5, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 'Frodon entame un périlleux voyage pour détruire l\'Anneau Unique.', 'https://image.tmdb.org/t/p/w500/56zTpe2xvaA4alU51sRWPoKPYZy.jpg', '2001-12-19'),
+(6, 'Titanic', 'Une romance naît entre deux passagers du Titanic, vouée à se heurter à la tragédie.', 'https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg', '1997-12-19'),
+(7, 'Avatar', 'Sur Pandora, un soldat humain infiltre les Na\'vi et découvre un conflit moral.', 'https://image.tmdb.org/t/p/w500/kmcqlZGaSh20zpTbuoF0Cdn07dT.jpg', '2009-12-18'),
+(8, 'The Matrix', 'Un hacker découvre la vérité sur la réalité : le monde est une simulation.', 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg', '1999-03-31'),
+(9, 'Le Fabuleux Destin d’Amélie Poulain', 'À Montmartre, Amélie décide d’améliorer la vie des gens qui l’entourent.', 'https://image.tmdb.org/t/p/w500/sLG6bA1Zw54q1d1WORy1xkWQ5yJ.jpg', '2001-04-25'),
+(10, 'La La Land', 'Une actrice en devenir et un pianiste passionné tombent amoureux à Los Angeles.', 'https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg', '2016-12-09'),
+(11, 'Joker', 'Arthur Fleck, un comédien raté, bascule dans la folie et devient le Joker.', 'https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg', '2019-10-04'),
+(12, 'Parasite', 'Une famille pauvre s\'infiltre dans une famille riche, déclenchant une série d’événements dramatiques.', 'https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg', '2019-05-30'),
+(13, 'Forrest Gump', 'Forrest, un homme simple au grand cœur, traverse les époques et change l’histoire sans le vouloir.', 'https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg', '1994-07-06'),
+(14, 'Le Parrain', 'Le chef d’une famille mafieuse transmet son empire criminel à son fils.', 'https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg', '1972-03-24'),
+(15, 'Les Évadés', 'Deux prisonniers tissent un lien unique et espèrent une liberté retrouvée.', 'https://image.tmdb.org/t/p/w500/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg', '1994-09-23');
 
 -- --------------------------------------------------------
 
@@ -41,7 +76,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2025_01_06_144738_create_tasks_table', 1),
-(5, '2025_01_14_090510_add_role_to_users_table', 2);
+(5, '2025_01_14_090510_add_role_to_users_table', 2),
+(6, '2025_05_28_123103_create_showtimes_table', 3);
 
 -- --------------------------------------------------------
 
@@ -54,6 +90,34 @@ CREATE TABLE `password_reset_tokens` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `showtimes`
+--
+
+CREATE TABLE `showtimes` (
+  `id` bigint UNSIGNED NOT NULL,
+  `cinema_id` int NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time DEFAULT NULL,
+  `date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `showtimes`
+--
+
+INSERT INTO `showtimes` (`id`, `cinema_id`, `start_time`, `end_time`, `date`, `created_at`, `updated_at`) VALUES
+(1, 1, '14:00:00', '16:00:00', '2025-06-01', '2025-05-28 12:39:12', '2025-05-28 12:39:12'),
+(2, 1, '18:00:00', '20:00:00', '2025-06-01', '2025-05-28 12:39:12', '2025-05-28 12:39:12'),
+(3, 2, '15:30:00', '17:30:00', '2025-06-01', '2025-05-28 12:39:12', '2025-05-28 12:39:12'),
+(4, 2, '19:00:00', '21:00:00', '2025-06-02', '2025-05-28 12:39:12', '2025-05-28 12:39:12'),
+(5, 3, '13:00:00', '15:00:00', '2025-06-01', '2025-05-28 12:39:12', '2025-05-28 12:39:12'),
+(6, 3, '17:00:00', '19:00:00', '2025-06-03', '2025-05-28 12:39:12', '2025-05-28 12:39:12');
 
 -- --------------------------------------------------------
 
@@ -146,6 +210,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `passwo
 --
 
 --
+-- Index pour la table `cinemas`
+--
+ALTER TABLE `cinemas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `migrations`
 --
 ALTER TABLE `migrations`
@@ -156,6 +226,13 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Index pour la table `showtimes`
+--
+ALTER TABLE `showtimes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `showtimes_cinema_id_foreign` (`cinema_id`);
 
 --
 -- Index pour la table `tasks`
@@ -175,10 +252,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `cinemas`
+--
+ALTER TABLE `cinemas`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `showtimes`
+--
+ALTER TABLE `showtimes`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `tasks`
@@ -191,6 +280,16 @@ ALTER TABLE `tasks`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `showtimes`
+--
+ALTER TABLE `showtimes`
+  ADD CONSTRAINT `showtimes_cinema_id_foreign` FOREIGN KEY (`cinema_id`) REFERENCES `cinemas` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
