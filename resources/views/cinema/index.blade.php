@@ -17,7 +17,7 @@
                             </th>
                             <th class="border px-2 py-2 text-xs text-gray-500">@lang('Image')</th>
                             <th class="border px-2 py-2 text-xs text-gray-500">@lang('Date')</th>
-                            <th class="border px-2 py-2 text-xs text-gray-500"></th>
+                            <th class="border px-2 py-2 text-xs text-gray-500" colspan="2">@lang('Actions')</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
@@ -31,18 +31,19 @@
                                 </td>
                                 <td class="border px-4 py-4">
                                     @if($item->image)
-                                        <img src="{{ asset('storage/' . $item->image) }}" alt="image"
+                                        <img src="{{ asset( $item->image) }}" alt="image"
                                             class="h-12 w-12 object-cover rounded">
                                     @else
                                         -
                                     @endif
                                 </td>
                                 <td class="border px-4 py-4">{{ $item->date ?? '-' }}</td>
-                                <td class="border px-4 py-4">
-                                    <x-link-button href="{{ route('cinema.show', $item->id) }}">
+                                <td>
+                                    <x-link-button href="{{ route('cinema.show', $item->id) }}" class="btn btn-primary">
                                         @lang('Show')
                                     </x-link-button>
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>
