@@ -13,8 +13,9 @@
             </a>
 
             <span class="font-semibold">
-                Semaine du {{ $startOfWeek->format('d/m/Y') }} au {{ $endOfWeek->format('d/m/Y') }}
+                Semaine n°{{ $startOfWeek->isoWeek }} du {{ $startOfWeek->format('d/m/Y') }} au {{ $endOfWeek->format('d/m/Y') }}
             </span>
+
 
             <a href="{{ route('planning.index', ['startOfWeek' => $nextWeek]) }}"
                 class="btn btn-primary hover:underline text-blue-600">
