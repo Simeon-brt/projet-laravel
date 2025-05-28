@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [TaskController::class, 'nbTasks'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -47,12 +49,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin', [ProfileController::class, 'admin'])->name('admin');
 
-
-
-    
-
-
-
+    // Gestion des cinémas avec resource
+    Route::resource('cinema', CinemaController::class);
 
 });
 
